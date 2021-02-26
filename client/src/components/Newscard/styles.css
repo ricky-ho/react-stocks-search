@@ -1,0 +1,58 @@
+.newscard-wrapper {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  min-width: 400px;
+  height: 125px;
+  margin-bottom: 25px;
+}
+
+.newscard-image {
+  width: 100px;
+  height: 100%;
+  margin-right: 10px;
+  background: red;
+}
+
+.newscard-image > img {
+  width: 100%;
+  height: 100%;
+}
+
+.newscard-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.newscard-headline {
+  width: 100%;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.newscard-headline > a {
+  text-decoration: none;
+  color: #000;
+}
+
+.newscard-headline > a:hover {
+  color: #0081f2;
+}
+
+.newscard-headline > a > h1 {
+  font-size: 1.25rem;
+}
+
+.newscard-meta {
+  width: 100%;
+  font-size: 0.75rem;
+  color: #5e5e5e;
+  margin-bottom: 10px;
+}
+
+.newscard-summary {
+  width: 100%;
+  overflow: hidden;
+}
