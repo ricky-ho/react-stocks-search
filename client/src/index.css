@@ -21,3 +21,40 @@
   max-width: 1440px;
   min-height: 100vh;
 }
+
+.font-xs {
+  font-size: 0.75rem;
+}
+
+.font-sm {
+  font-size: 1rem;
+}
+
+.font-m {
+  font-size: 1.5rem;
+}
+
+.font-l {
+  font-size: 2rem;
+}
+
+.font-xl {
+  font-size: 2.5rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.align-center {
+  align-items: center;
+}

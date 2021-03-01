@@ -10,7 +10,7 @@ const Header = ({ searchSubmit }) => {
             Finance App
           </a>
         </div>
-        <Searchbar onSubmit={searchSubmit} />
+        <Searchbar searchSubmit={searchSubmit} />
       </div>
     </header>
   );
