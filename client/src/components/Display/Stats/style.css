@@ -1,0 +1,17 @@
+.stats-content {
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.stats-table th {
+  font-weight: normal;
+  text-align: left;
+  padding-top: 5px;
+  padding-right: 30px;
+}
+
+.stats-table td {
+  font-weight: bold;
+  text-align: right;
+  padding-top: 5px;
+}

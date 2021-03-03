@@ -1,10 +1,10 @@
 import { FaSearch } from "react-icons/fa";
-import "./styles.css";
+import "./style.css";
 
 const Searchbar = ({ searchSubmit }) => {
   let iconStyle = { color: "#fff" };
   return (
-    <div className="searchbar-wrapper">
+    <div className="flex justify-center align-center">
       <form
         action=""
         onSubmit={(e) => {
@@ -14,8 +14,8 @@ const Searchbar = ({ searchSubmit }) => {
         }}
       >
         <input type="text" placeholder="Search by ticker symbol" required />
-        <button type="submit" className="btn">
-          <FaSearch style={iconStyle} />
+        <button type="submit" className="search-btn">
+          <FaSearch className="react-icons" style={iconStyle} />
         </button>
       </form>
     </div>

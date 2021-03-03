@@ -2,16 +2,20 @@ import Quote from "./Quote";
 import Stats from "./Stats";
 import Company from "./Company";
 import News from "./News";
-import "./styles.css";
+import "./style.css";
 
 const Display = ({ data }) => {
   return Object.keys(data).length !== 0 ? (
-    <div className="display">
-      <Quote data={data.quote} />
-      <Stats data={data.quote} />
-      <Company data={data.companyInfo} symbol={data.quote.symbol} />
+    <main className="display flex-col">
+      <div className="flex separator">
+        <Quote data={data.quote} />
+        <Stats data={data.quote} />
+      </div>
+      <div className="separator">
+        <Company data={data.company} symbol={data.quote.symbol} />
+      </div>
       <News data={data.news} />
-    </div>
+    </main>
   ) : (
     <div className="display"></div>
   );

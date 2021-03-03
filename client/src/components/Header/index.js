@@ -1,15 +1,10 @@
 import Searchbar from "../Searchbar";
-import "./styles.css";
+import "./style.css";
 
 const Header = ({ searchSubmit }) => {
   return (
-    <header>
-      <div className="header-content">
-        <div className="header-title">
-          <a href="/" className="logo">
-            Finance App
-          </a>
-        </div>
+    <header className="flex justify-center">
+      <div className="flex justify-center align-center">
         <Searchbar searchSubmit={searchSubmit} />
       </div>
     </header>
