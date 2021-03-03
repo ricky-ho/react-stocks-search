@@ -1,0 +1,21 @@
+.newscard-wrapper {
+  width: 100%;
+  min-width: 600px;
+  height: 130px;
+  margin-bottom: 25px;
+}
+
+.newscard-content {
+  width: 100%;
+  height: 100%;
+}
+
+.newscard-section {
+  width: 100%;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.newscard-section > a:hover {
+  color: #0081f2;
+}
