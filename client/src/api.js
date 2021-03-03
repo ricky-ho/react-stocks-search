@@ -1,4 +1,8 @@
-// public token : Tpk_1ba9a99eab1f410d8a803b8aaf3e2a2e
+//public token: Tpk_1ba9a99eab1f410d8a803b8aaf3e2a2e
+// REFACTOR: Use Batch requests
+//  - GET /stock/{symbol}/batch
+//  - https://iexcloud.io/docs/api/#batch-requests
+// https://sandbox.iexapis.com/stable/stock/${query}/batch?types=quote,company,news&last=3&token=${process.env.REACT_APP_PUBLIC_KEY}
 
 const getSymbolData = async (query) => {
   const data = {
@@ -34,8 +38,8 @@ const getSymbolQuote = async (query) => {
       latestVolume: data.latestVolume,
       volume: data.volume,
       avgTotalVolume: data.avgTotalVolume,
-      change: data.change,
-      changePercent: data.changePercent,
+      change: data.change.toFixed(2),
+      changePercent: (data.changePercent * 100).toFixed(2),
       week52High: data.week52High,
       week52Low: data.week52Low,
       peRatio: data.peRatio,
@@ -63,6 +67,7 @@ const getSymbolCompanyInfo = async (query) => {
       CEO: data.CEO,
       employees: data.employees,
       sector: data.sector,
+      industry: data.industry,
       city: data.city,
       state: data.state,
     };
