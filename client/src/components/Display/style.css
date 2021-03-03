@@ -1,0 +1,20 @@
+.display {
+  margin-top: 40px;
+  padding: 50px 100px;
+  width: 100%;
+  min-height: 100vh;
+  max-width: 1440px;
+}
+
+.display-section {
+  width: 100%;
+  padding: 30px 0;
+}
+
+.separator {
+  border-bottom: 2px solid #bcbec0;
+}
+
+.section-title {
+  margin-bottom: 15px;
+}
