@@ -1,18 +1,9 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: arial;
   font-size: 16px;
   box-sizing: border-box;
-}
-
-img {
-  display: block;
-  max-width: 242px;
-  max-height: 125px;
-  width: auto;
-  height: auto;
-  margin-right: 10px;
 }
 
 .App {
@@ -24,6 +15,7 @@ img {
 
 .flex {
   display: flex;
+  width: 100%;
 }
 
 .flex-col {
@@ -37,6 +29,10 @@ img {
 
 .align-center {
   align-items: center;
+}
+
+.text-center {
+  text-align: center;
 }
 
 /* FONT STYLES */

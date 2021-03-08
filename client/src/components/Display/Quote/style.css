@@ -1,7 +1,7 @@
-.quote-content {
-  margin-bottom: 10px;
+#quote {
+  padding: 5px 0;
 }
 
-.quote-title {
-  margin-bottom: 5px;
+.quote-content {
+  padding: 5px 0;
 }

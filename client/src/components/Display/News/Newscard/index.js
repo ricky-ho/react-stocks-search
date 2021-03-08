@@ -1,47 +1,35 @@
 import "./style.css";
 
-const Newscard = ({ data }) => {
-  const unixToLocaleDate = (unix_datetime) => {
-    let date = new Date(unix_datetime);
-    return date.toLocaleString([], {
-      weekday: "short",
-      month: "numeric",
-      day: "numeric",
-      year: "numeric",
-      hour: "numeric",
-      minute: "2-digit",
-    });
-  };
-
+const Newscard = ({ data, localeDate }) => {
   return (
-    <article className="newscard-wrapper flex">
-      <div>
-        <img src={data.image} alt={`${data.headline}`} />
-      </div>
+    <a
+      className="no-text-decoration font-m font-primary"
+      href={data.url}
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      <article className="newscard flex">
+        <div className="img-container">
+          <img src={data.image} alt={`${data.headline}`} />
+        </div>
 
-      <div className="newscard-content flex-col">
-        <section className="newscard-section">
-          <a
-            className="no-text-decoration font-m font-primary"
-            href={data.url}
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <h3 className="font-sm" key={data.url}>
+        <div className="newscard-content flex-col">
+          <section>
+            <h3 className="font-m" key={data.url}>
               {data.headline}
             </h3>
-          </a>
-        </section>
-        <section className="newscard-section">
-          <p className="font-secondary">
-            {data.source} | {unixToLocaleDate(data.datetime)}
-          </p>
-        </section>
-        <section className="newscard-section">
-          <p>{data.summary}</p>
-        </section>
-      </div>
-    </article>
+          </section>
+          <section>
+            <p className="font-secondary">
+              {data.source} | {localeDate(data.datetime)}
+            </p>
+          </section>
+          <section>
+            <p className="font-primary">{data.summary}</p>
+          </section>
+        </div>
+      </article>
+    </a>
   );
 };
 

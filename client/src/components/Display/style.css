@@ -1,5 +1,5 @@
-.display {
-  margin-top: 40px;
+main {
+  margin-top: 60px;
   padding: 50px 100px;
   width: 100%;
   min-height: 100vh;
@@ -12,9 +12,14 @@
 }
 
 .separator {
+  height: 100%;
   border-bottom: 2px solid #bcbec0;
 }
 
 .section-title {
   margin-bottom: 15px;
+}
+
+#main-details {
+  padding-bottom: 30px;
 }
