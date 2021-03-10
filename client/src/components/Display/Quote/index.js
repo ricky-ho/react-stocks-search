@@ -1,23 +1,21 @@
-import "./style.css";
-
 const formatChange = (change, percent) => {
   let op = change >= 0 ? `+` : "";
-  return `${op}${change} (${op}${percent}%)`;
+  return `${op}${change.toFixed(2)} (${op}${(percent * 100).toFixed(2)}%)`;
 };
 
 const Quote = ({ data, localeDate }) => {
   return (
     <section id="quote" className="display-section">
-      <div className="quote-content">
+      <div>
         <p className="font-xs font-secondary">
           {data.primaryExchange ? `${data.primaryExchange} | ` : ""} Currency in
           USD
         </p>
       </div>
 
-      <div className="quote-content">
+      <div>
         <p className="font-xxl">
-          {data.latestPrice}
+          {data.latestPrice ? data.latestPrice.toFixed(2) : "--"}
           <span
             className={`font-m ${data.change >= 0 ? "font-green" : "font-red"}`}
           >
@@ -29,7 +27,7 @@ const Quote = ({ data, localeDate }) => {
         </p>
       </div>
 
-      <div className="quote-content">
+      <div>
         <p className="font-xs font-secondary">
           {data.latestSource} | {localeDate(data.latestUpdate)} |{" "}
           <a

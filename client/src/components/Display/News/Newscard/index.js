@@ -7,6 +7,7 @@ const Newscard = ({ data, localeDate }) => {
       href={data.url}
       rel="noopener noreferrer"
       target="_blank"
+      aria-label={`View the full article: ${data.headline}`}
     >
       <article className="newscard flex">
         <div className="img-container">
@@ -14,19 +15,17 @@ const Newscard = ({ data, localeDate }) => {
         </div>
 
         <div className="newscard-content flex-col">
-          <section>
-            <h3 className="font-m" key={data.url}>
-              {data.headline}
-            </h3>
-          </section>
-          <section>
-            <p className="font-secondary">
-              {data.source} | {localeDate(data.datetime)}
-            </p>
-          </section>
-          <section>
+          <h3 className="font-sm" key={data.url}>
+            {data.headline}
+          </h3>
+
+          <p className="font-secondary">
+            {data.source} | {localeDate(data.datetime)}
+          </p>
+
+          <div>
             <p className="font-primary">{data.summary}</p>
-          </section>
+          </div>
         </div>
       </article>
     </a>

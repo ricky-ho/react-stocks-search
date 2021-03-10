@@ -13,8 +13,13 @@ const Searchbar = ({ searchSubmit }) => {
           e.target[0].value = "";
         }}
       >
-        <input type="text" placeholder="Search by ticker symbol" required />
-        <button type="submit" className="search-btn">
+        <input
+          type="text"
+          aria-label="search-field"
+          placeholder="Search by ticker symbol"
+          required
+        />
+        <button type="submit" className="search-btn" aria-label="search-submit">
           <FaSearch className="react-icons" style={iconStyle} />
         </button>
       </form>

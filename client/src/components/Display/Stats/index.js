@@ -14,24 +14,26 @@ const formatLargeNums = (num) => {
 const Stats = ({ data }) => {
   return (
     <section id="stats" className="display-section">
-      <div className="stats-content flex align-center">
+      <div className="stats-content flex justify-center align-center">
         <table className="stats-table">
           <tbody>
             <tr>
               <th className="font-secondary">Prev. Close</th>
-              <td>{data.previousClose ? data.previousClose : "--"}</td>
+              <td>
+                {data.previousClose ? data.previousClose.toFixed(2) : "--"}
+              </td>
             </tr>
             <tr>
               <th className="font-secondary">Open</th>
-              <td>{data.open ? data.open : "--"}</td>
+              <td>{data.open ? data.open.toFixed(2) : "--"}</td>
             </tr>
             <tr>
               <th className="font-secondary">High</th>
-              <td>{data.high ? data.high : "--"}</td>
+              <td>{data.high ? data.high.toFixed(2) : "--"}</td>
             </tr>
             <tr>
               <th className="font-secondary">Low</th>
-              <td>{data.low ? data.low : "--"}</td>
+              <td>{data.low ? data.low.toFixed(2) : "--"}</td>
             </tr>
             <tr>
               <th className="font-secondary">Volume</th>
@@ -53,11 +55,11 @@ const Stats = ({ data }) => {
             </tr>
             <tr>
               <th className="font-secondary">52 Week High</th>
-              <td>{data.week52High ? data.week52High : "--"}</td>
+              <td>{data.week52High ? data.week52High.toFixed(2) : "--"}</td>
             </tr>
             <tr>
               <th className="font-secondary">52 Week Low</th>
-              <td>{data.week52Low ? data.week52Low : "--"}</td>
+              <td>{data.week52Low ? data.week52Low.toFixed(2) : "--"}</td>
             </tr>
             <tr>
               <th className="font-secondary">Avg. Volume</th>

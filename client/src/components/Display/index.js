@@ -6,10 +6,10 @@ import News from "./News";
 import "./style.css";
 
 const Display = ({ data, localeDate }) => {
-  return Object.keys(data).length !== 0 ? (
+  return Object.keys(data).length !== 0 && !data.error ? (
     <main className="flex-col">
       <div className="flex-col separator">
-        <h1 className="font-l">
+        <h1 id="title" className="font-l">
           ({data.quote.symbol}) {data.quote.companyName}
         </h1>
         <div id="main-details" className="flex main">
@@ -29,7 +29,16 @@ const Display = ({ data, localeDate }) => {
       <News data={data.news} localeDate={localeDate} />
     </main>
   ) : (
-    <main className="display"></main>
+    <main className="flex justify-center ">
+      <div id="error" className="font-xl">
+        {data.status ? data.status : "Error"} -{" "}
+        {data.message
+          ? data.message
+          : data.status >= 500
+          ? "Something went wrong. Please try again later"
+          : "Symbol not found"}
+      </div>
+    </main>
   );
 };
 

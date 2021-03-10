@@ -6,11 +6,15 @@
   box-sizing: border-box;
 }
 
-.App {
+body {
+  min-width: 1080px;
+}
+
+#App {
   width: 100%;
   max-width: 1440px;
-  min-width: 1080px;
   min-height: 100vh;
+  background: #ffffff;
 }
 
 .flex {
@@ -81,6 +85,10 @@
 }
 
 .no-text-decoration {
+  text-decoration: none;
+}
+
+.no-text-decoration:hover {
   text-decoration: none;
 }
 

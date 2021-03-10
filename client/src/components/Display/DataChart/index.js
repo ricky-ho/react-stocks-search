@@ -5,7 +5,7 @@ const DataChart = ({ data, priceChange }) => {
   let series = setSeries(data);
   let options = setOptions(priceChange);
   return (
-    <div className="display-section flex-col">
+    <section id="chart" className="display-section flex-col">
       <p className="text-center">
         <strong className="font-xs">
           *Due to IEX free tier restrictions, only the intraday prices will be
@@ -20,7 +20,7 @@ const DataChart = ({ data, priceChange }) => {
         height={500}
         width="96%"
       />
-    </div>
+    </section>
   );
 };
 
