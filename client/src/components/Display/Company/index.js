@@ -1,16 +1,37 @@
-import { useState } from "react";
+import { useState, createRef, useEffect } from "react";
 import { AiOutlineDown, AiOutlineUp } from "react-icons/ai";
 import "./style.css";
 
 const Company = ({ data, symbol }) => {
-  let [expandActive, setExpandActive] = useState(true);
+  const iconStyle = { width: "15px", paddingLeft: "5px" };
 
-  let iconStyle = { width: "15px", paddingLeft: "5px" };
+  const [showMore, setShowMore] = useState(false);
+  const [descriptionOverflow, setDescriptionOverflow] = useState(false);
+
+  // Detect if company description has overflowed
+  const ref = createRef();
+  useEffect(() => {
+    if (
+      ref.current.clientWidth < ref.current.scrollWidth ||
+      ref.current.clientHeight < ref.current.scrollHeight
+    ) {
+      setDescriptionOverflow(true);
+    }
+  }, [ref]);
+
+  useEffect(() => {
+    ref.current.style.height = showMore ? "100%" : "12.3rem";
+  }, [ref, showMore]);
+
+  const clickShowMore = () => {
+    setShowMore(!showMore);
+  };
+
   return (
     <section id="company" className="display-section">
       <h2 className="font-m section-title">About {symbol}</h2>
       <div className="flex">
-        <div className="company-profile flex">
+        <div id="company-profile" className="flex">
           <table>
             <tbody>
               <tr>
@@ -48,33 +69,34 @@ const Company = ({ data, symbol }) => {
             </tbody>
           </table>
         </div>
-
         {data.description ? (
           <div className="flex-col align-center">
             <div
-              className={`company-description font-secondary ${
-                expandActive ? "fade-active" : ""
+              id="company-description"
+              ref={ref}
+              className={`font-secondary ${
+                descriptionOverflow && !showMore ? "fade-active" : ""
               }`}
             >
               {data.description}
             </div>
-            <button
-              className="expand-btn font-xs font-tertiary flex justify-center align-center"
-              type="text"
-              onClick={() => {
-                setExpandActive(!expandActive);
-              }}
-            >
-              {expandActive ? "More" : "Fold"}
-              {expandActive ? (
-                <AiOutlineDown className="react-icons" style={iconStyle} />
-              ) : (
-                <AiOutlineUp className="react-icons" style={iconStyle} />
-              )}
-            </button>
+            {descriptionOverflow && (
+              <button
+                className="expand-btn font-xs font-tertiary flex justify-center align-center"
+                type="text"
+                onClick={clickShowMore}
+              >
+                {showMore ? "Fold" : "More"}
+                {showMore ? (
+                  <AiOutlineUp className="react-icons" style={iconStyle} />
+                ) : (
+                  <AiOutlineDown className="react-icons" style={iconStyle} />
+                )}
+              </button>
+            )}
           </div>
         ) : (
-          <div className="flex justify-center align-center">
+          <div ref={ref} className="flex justify-center align-center">
             <p className="font-m">Company description not available.</p>
           </div>
         )}
