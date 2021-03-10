@@ -11,11 +11,13 @@ const getSymbolData = async (query) => {
     const data = await response.json();
     return {
       ...data,
+      error: false,
       quote: filterQuoteData(data.quote),
       company: filterCompanyData(data.company),
     };
   } catch (err) {
-    console.warn(err);
+    console.error(err);
+    alert(err);
   }
 };
 
@@ -24,20 +26,20 @@ const filterQuoteData = (data) => {
     symbol: data.symbol,
     companyName: data.companyName,
     primaryExchange: data.primaryExchange,
-    open: data.open.toFixed(2),
-    previousClose: data.previousClose.toFixed(2),
-    high: data.high.toFixed(2),
-    low: data.low.toFixed(2),
-    latestPrice: data.latestPrice.toFixed(2),
+    open: data.open,
+    previousClose: data.previousClose,
+    high: data.high,
+    low: data.low,
+    latestPrice: data.latestPrice,
     latestSource: data.latestSource,
     latestUpdate: data.latestUpdate,
     latestVolume: data.latestVolume,
     volume: data.volume,
     avgTotalVolume: data.avgTotalVolume,
-    change: data.change.toFixed(2),
-    changePercent: (data.changePercent * 100).toFixed(2),
-    week52High: data.week52High.toFixed(2),
-    week52Low: data.week52Low.toFixed(2),
+    change: data.change,
+    changePercent: data.changePercent,
+    week52High: data.week52High,
+    week52Low: data.week52Low,
     peRatio: data.peRatio,
     marketCap: data.marketCap,
   };
