@@ -1,15 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Display from "./components/Display";
 import { getSymbolData } from "./api";
+import { Spinner } from "react-bootstrap";
 
 /*
-  1. Fix Company description overflow
-  2. Fix newscard content overflow
-  3. Create default homepage/behavior
-  4. Finish footer
-  4. Change styling/make responsive
+  2. Finish footer
+  3. Change styling
 */
 
 const App = () => {
@@ -27,17 +25,41 @@ const App = () => {
   };
 
   const [symbolData, setSymbolData] = useState({});
+  const [loading, setLoading] = useState(true);
 
   const search = async (query) => {
-    let data = await getSymbolData(query);
+    setLoading(true);
+    const data = await getSymbolData(query);
     setSymbolData(data);
+    setLoading(false);
   };
 
+  // Default to searching for TSLA on page load
+  useEffect(() => {
+    const initialLoad = async () => {
+      const data = await getSymbolData("TSLA");
+      setSymbolData(data);
+      setLoading(false);
+    };
+    initialLoad();
+  }, []);
+
   return (
-    <div className="flex-col justify-center align-center">
-      <div className="App flex-col align-center">
-        <Header searchSubmit={search} />
-        <Display data={symbolData} localeDate={unixToLocaleDate} />
+    <div className="flex-col align-center ">
+      <Header searchSubmit={search} />
+      <div id="App" className="App flex justify-center align-center">
+        {loading ? (
+          <Spinner animation="border" variant="primary" role="status">
+            <span
+              aria-label="Loading"
+              style={{ display: "none", color: "#1262ec" }}
+            >
+              Loading...
+            </span>
+          </Spinner>
+        ) : (
+          <Display data={symbolData} localeDate={unixToLocaleDate} />
+        )}
       </div>
       <Footer />
     </div>
