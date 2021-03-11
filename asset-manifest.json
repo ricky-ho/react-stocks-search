@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/react-stocks-search/static/css/main.beaf67f2.chunk.css",
+    "main.js": "/react-stocks-search/static/js/main.a47da911.chunk.js",
+    "main.js.map": "/react-stocks-search/static/js/main.a47da911.chunk.js.map",
+    "runtime-main.js": "/react-stocks-search/static/js/runtime-main.2c634617.js",
+    "runtime-main.js.map": "/react-stocks-search/static/js/runtime-main.2c634617.js.map",
+    "static/css/2.150d169a.chunk.css": "/react-stocks-search/static/css/2.150d169a.chunk.css",
+    "static/js/2.082ea9ac.chunk.js": "/react-stocks-search/static/js/2.082ea9ac.chunk.js",
+    "static/js/2.082ea9ac.chunk.js.map": "/react-stocks-search/static/js/2.082ea9ac.chunk.js.map",
+    "index.html": "/react-stocks-search/index.html",
+    "static/css/2.150d169a.chunk.css.map": "/react-stocks-search/static/css/2.150d169a.chunk.css.map",
+    "static/css/main.beaf67f2.chunk.css.map": "/react-stocks-search/static/css/main.beaf67f2.chunk.css.map",
+    "static/js/2.082ea9ac.chunk.js.LICENSE.txt": "/react-stocks-search/static/js/2.082ea9ac.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2c634617.js",
+    "static/css/2.150d169a.chunk.css",
+    "static/js/2.082ea9ac.chunk.js",
+    "static/css/main.beaf67f2.chunk.css",
+    "static/js/main.a47da911.chunk.js"
+  ]
+}
