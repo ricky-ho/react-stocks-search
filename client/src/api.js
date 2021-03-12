@@ -9,15 +9,27 @@ const getSymbolData = async (query) => {
     }
 
     const data = await response.json();
-    return {
-      ...data,
-      error: false,
-      quote: filterQuoteData(data.quote),
-      company: filterCompanyData(data.company),
-    };
+
+    // Edge case for IEX API in which the data is not in the database, but
+    // response returned ok
+    if (data.quote === null || data.company === null) {
+      return handleAPIError({
+        status: "400",
+        statusText: "IEX returned null data",
+      });
+    } else {
+      return {
+        ...data,
+        error: false,
+        quote: filterQuoteData(data.quote),
+        company: filterCompanyData(data.company),
+      };
+    }
   } catch (err) {
-    console.error(err);
-    alert(err);
+    return handleAPIError({
+      status: 500,
+      statusText: "Internal server error",
+    });
   }
 };
 

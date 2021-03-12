@@ -29,7 +29,8 @@ const Quote = ({ data, localeDate }) => {
 
       <div>
         <p className="font-xs font-secondary">
-          {data.latestSource} | {localeDate(data.latestUpdate)} |{" "}
+          {data.latestSource ? data.latestSource : "--"} |{" "}
+          {data.latestUpdate ? localeDate(data.latestUpdate) : "--"} |{" "}
           <a
             className="font-xs font-tertiary no-text-decoration"
             href="https://iexcloud.io"

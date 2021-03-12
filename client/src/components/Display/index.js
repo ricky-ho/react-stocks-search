@@ -32,11 +32,7 @@ const Display = ({ data, localeDate }) => {
     <main className="flex justify-center ">
       <div id="error" className="font-xl">
         {data.status ? data.status : "Error"} -{" "}
-        {data.message
-          ? data.message
-          : data.status >= 500
-          ? "Something went wrong. Please try again later"
-          : "Symbol not found"}
+        {data.message ? data.message : "Symbol not found in IEX database"}
       </div>
     </main>
   );

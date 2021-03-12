@@ -1,3 +1,4 @@
+import fallBackImage from "../../../../images/unavailable-image.jpg";
 import "./style.css";
 
 const Newscard = ({ data, localeDate }) => {
@@ -11,7 +12,13 @@ const Newscard = ({ data, localeDate }) => {
     >
       <article className="newscard flex">
         <div className="img-container">
-          <img src={data.image} alt={`${data.headline}`} />
+          <img
+            src={data.image}
+            onError={(e) => {
+              e.target.src = fallBackImage;
+            }}
+            alt={`${data.headline}`}
+          />
         </div>
 
         <div className="newscard-content flex-col">
