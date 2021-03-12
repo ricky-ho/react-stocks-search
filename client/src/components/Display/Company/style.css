@@ -4,8 +4,8 @@
 }
 
 #company-profile {
-  min-width: 400px;
   width: 100%;
+  min-width: 400px;
   margin-right: 75px;
 }
 
@@ -56,7 +56,7 @@
   );
 }
 
-.expand-btn {
+#expand-btn {
   cursor: pointer;
   position: relative;
   width: 60px;

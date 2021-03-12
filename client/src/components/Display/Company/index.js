@@ -11,10 +11,7 @@ const Company = ({ data, symbol }) => {
   // Detect if company description has overflowed
   const ref = createRef();
   useEffect(() => {
-    if (
-      ref.current.clientWidth < ref.current.scrollWidth ||
-      ref.current.clientHeight < ref.current.scrollHeight
-    ) {
+    if (ref.current.clientHeight < ref.current.scrollHeight) {
       setDescriptionOverflow(true);
     }
   }, [ref]);
@@ -82,7 +79,8 @@ const Company = ({ data, symbol }) => {
             </div>
             {descriptionOverflow && (
               <button
-                className="expand-btn font-xs font-tertiary flex justify-center align-center"
+                id="expand-btn"
+                className="font-xs font-tertiary flex justify-center align-center"
                 type="text"
                 onClick={clickShowMore}
               >
