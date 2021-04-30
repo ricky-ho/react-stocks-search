@@ -1,29 +1,38 @@
+import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
+import useWindowPosition from "../../utils/useWindowPosition";
 import "./style.css";
 
 const Searchbar = ({ searchSubmit }) => {
-  let iconStyle = { color: "#fff" };
+  const scrollPosition = useWindowPosition();
+  const [searchTerm, setSearchTerm] = useState("");
+
   return (
-    <div className="flex justify-center align-center">
+    <header
+      id="header"
+      className={`${scrollPosition > 25 ? "header-sticky" : ""}`}
+    >
       <form
         action=""
         onSubmit={(e) => {
           e.preventDefault();
-          searchSubmit(e.target[0].value);
-          e.target[0].value = "";
+          searchSubmit(searchTerm);
+          setSearchTerm("");
         }}
       >
         <input
           type="text"
-          aria-label="search-field"
-          placeholder="Search by ticker symbol"
+          placeholder="Search by ticker symbol..."
+          title=""
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value.toUpperCase())}
           required
         />
-        <button type="submit" className="search-btn" aria-label="search-submit">
-          <FaSearch className="react-icons" style={iconStyle} />
+        <button type="submit" className="search-btn" aria-label="Submit search">
+          <FaSearch className="search-icon" />
         </button>
       </form>
-    </div>
+    </header>
   );
 };
 

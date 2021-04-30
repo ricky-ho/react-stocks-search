@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: arial;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-primary: #000000;
+  --color-secondary: #727272;
+  --color-tertiary: #357fff;
+  --color-bullish: #00873c;
+  --color-bearish: #ff0000;
+  --color-tertiary-light: #bad7fd;
+  --font-xs: 0.75rem;
+  --font-s: 0.85rem;
+  --font-m: 1.25rem;
+  --font-M: 1.5rem;
+  --font-l: 2rem;
+  --font-xl: 2.5rem;
+  --font-xxl: 3rem;
+  --screen-cutoff-size: 915px;
+}
+
+body {
+  min-width: var(--screen-cutoff-size);
+}
+
+#App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(var(--color-tertiary) 10%, #fff 90%);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  width: var(--screen-cutoff-size);
+  min-height: 94vh;
+  padding: 50px;
+  background: #fff;
+}
+
+.flex {
+  display: flex;
+  width: 100%;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}

@@ -1,0 +1,37 @@
+#quote-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  margin: 25px 0 35px 0;
+}
+
+.quote-meta {
+  display: block;
+  color: var(--color-secondary);
+  font-size: var(--font-xs);
+}
+
+.quote {
+  display: block;
+  font-size: var(--font-xxl);
+  margin: 5px 0;
+}
+
+.quote span {
+  font-size: var(--font-M);
+}
+
+.quote-meta a {
+  font-size: var(--font-xs);
+  color: var(--color-tertiary);
+  text-decoration: none;
+}
+
+.color-bearish {
+  color: #ff0000;
+}
+
+.color-bullish {
+  color: #00873c;
+}

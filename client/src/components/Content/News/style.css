@@ -1,0 +1,18 @@
+#news {
+  padding: 30px 0;
+}
+
+#news h2 {
+  font-size: var(--font-M);
+  margin-bottom: 25px;
+}
+
+#empty-news {
+  display: flex;
+  justify-content: center;
+  padding: 25px 0;
+}
+
+#empty-news p {
+  text-align: center;
+}

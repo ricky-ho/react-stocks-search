@@ -1,66 +1,49 @@
 import { useState, useEffect } from "react";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import Display from "./components/Display";
-import { getSymbolData } from "./api";
-import { Spinner } from "react-bootstrap";
 
-/*
-  2. Finish footer
-  3. Change styling
+import Searchbar from "./components/Searchbar";
+import Content from "./components/Content";
+import Footer from "./components/Footer";
+import Spinner from "./components/Spinner";
+import fetchSymbolData from "./utils/api";
+import "./App.css";
+
+/**
+ NEED TO DO:
+  - Refactor code to be more modular
+    - Display 
+  - Fix/Add styling
+  - Add responsiveness
 */
 
 const App = () => {
-  const unixToLocaleDate = (unix_datetime) => {
-    let date = new Date(unix_datetime);
-    return date.toLocaleString([], {
-      month: "short",
-      day: "numeric",
-      year: "numeric",
-      hour: "numeric",
-      minute: "2-digit",
-      timeZone: "America/New_York",
-      timeZoneName: "short",
-    });
-  };
-
   const [symbolData, setSymbolData] = useState({});
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const search = async (query) => {
-    setLoading(true);
-    const data = await getSymbolData(query);
+  const handleSearch = async (query) => {
+    setIsLoading(true);
+    const data = await fetchSymbolData(query);
     setSymbolData(data);
-    setLoading(false);
+    setIsLoading(false);
   };
 
-  // Default to searching for TSLA on page load
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [symbolData]);
+
+  useEffect(() => {
+    // Default to searching for TSLA on initial page load
     const initialLoad = async () => {
-      const data = await getSymbolData("TSLA");
+      const data = await fetchSymbolData("TSLA");
       setSymbolData(data);
-      setLoading(false);
+      setIsLoading(false);
     };
     initialLoad();
   }, []);
 
   return (
-    <div className="flex-col align-center ">
-      <Header searchSubmit={search} />
-      <div id="App" className="App flex justify-center align-center">
-        {loading ? (
-          <Spinner animation="border" variant="primary" role="status">
-            <span
-              aria-label="Loading"
-              style={{ display: "none", color: "#1262ec" }}
-            >
-              Loading...
-            </span>
-          </Spinner>
-        ) : (
-          <Display data={symbolData} localeDate={unixToLocaleDate} />
-        )}
-      </div>
+    <div id="App">
+      <Searchbar searchSubmit={handleSearch} />
+      {isLoading ? <Spinner /> : <Content data={symbolData} />}
       <Footer />
     </div>
   );

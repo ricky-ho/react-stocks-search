@@ -1,10 +1,16 @@
+import { unixToLocaleDate } from "../../../utils/date";
+
 const setSeries = (data) => {
-  let series = [
+  const series = [
     {
       name: "Price",
-      data: data.map((bar) => {
-        let datetime = Date.parse(`${bar.date} ${bar.minute}`);
-        return [datetime, bar.close];
+      data: data.map((minutebar, index) => {
+        // If the minutebar's closing value is null, use the previous non-null closing value
+        if (minutebar.close === null && index !== 0) {
+          minutebar.close = data[index - 1].close;
+        }
+        const datetime = Date.parse(`${minutebar.date} ${minutebar.minute}`);
+        return [datetime, minutebar.close];
       }),
     },
   ];
@@ -12,7 +18,9 @@ const setSeries = (data) => {
 };
 
 const setOptions = (priceChange) => {
-  let chartColor = priceChange > 0 ? "#00873c" : "#eb0f29";
+  const colorBullish = "#00873c";
+  const colorBearish = "#eb0f29";
+  const chartColor = priceChange > 0 ? colorBullish : colorBearish;
 
   return {
     chart: {
@@ -45,7 +53,7 @@ const setOptions = (priceChange) => {
     },
     markers: {
       size: 0,
-      colors: ["#000"],
+      colors: ["black"],
       strokeWidth: 0,
       showNullDataPoints: false,
       hover: {
@@ -59,7 +67,7 @@ const setOptions = (priceChange) => {
     fill: {
       type: "solid",
       colors: [chartColor],
-      opacity: 0.4,
+      opacity: 0.3,
     },
     xaxis: {
       type: "datetime",
@@ -71,18 +79,16 @@ const setOptions = (priceChange) => {
         datetimeUTC: false,
       },
       axisBorder: {
-        show: true,
-        color: "#bcbec0",
+        show: false,
       },
       axisTicks: {
-        show: true,
-        color: "#bcbec0",
+        show: false,
       },
       crosshairs: {
         show: true,
         position: "back",
         stroke: {
-          color: "#909090",
+          color: "gray",
           dashArray: 2,
         },
       },
@@ -90,11 +96,10 @@ const setOptions = (priceChange) => {
     yaxis: {
       decimalsInFloat: 2,
       axisBorder: {
-        color: "#bcbec0",
+        show: false,
       },
       axisTicks: {
-        show: true,
-        color: "#bcbec0",
+        show: false,
       },
       crosshairs: {
         show: true,
@@ -111,22 +116,13 @@ const setOptions = (priceChange) => {
     tooltip: {
       enabled: true,
       x: {
-        formatter: (value) => {
-          return (
-            new Date(value).toLocaleString([], {
-              month: "short",
-              day: "numeric",
-              year: "numeric",
-              hour: "numeric",
-              minute: "2-digit",
-            }) + " EST"
-          );
+        formatter: (timestamp) => {
+          const HOUR_TO_MS = 60 * 60 * 1000;
+          return unixToLocaleDate(timestamp - 3 * HOUR_TO_MS);
         },
       },
       y: {
-        formatter: (value) => {
-          return `$${value.toFixed(2)}`;
-        },
+        formatter: (price) => `$${price.toFixed(2)}`,
       },
       marker: {
         show: false,

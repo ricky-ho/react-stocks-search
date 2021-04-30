@@ -1,0 +1,27 @@
+.company-profile {
+  display: flex;
+  width: 100%;
+  margin-right: 50px;
+}
+
+.company-profile table {
+  flex: 1;
+  min-height: 150px;
+}
+
+.company-profile th {
+  font-size: var(--font-s);
+  font-weight: bold;
+  text-align: left;
+  padding: 5px 0;
+  border-bottom: 1px solid var(--color-secondary);
+}
+
+.company-profile td {
+  color: var(--color-secondary);
+  font-size: var(--font-s);
+  font-weight: normal;
+  text-align: right;
+  width: 100%;
+  border-bottom: 1px solid var(--color-secondary);
+}

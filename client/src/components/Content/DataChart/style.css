@@ -1,0 +1,20 @@
+#chart-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 35px 0;
+}
+
+.chart-disclaimer {
+  width: 100%;
+  text-align: left;
+  font-size: var(--font-xs);
+  color: var(--color-primary);
+  margin-bottom: 5px;
+}
+
+.chart-disclaimer span {
+  font-size: var(--font-xs);
+  font-weight: bold;
+  color: var(--color-tertiary);
+}
