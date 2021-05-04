@@ -5,12 +5,6 @@ object-assign
 */
 
 /*!
-  Copyright (c) 2017 Jed Watson.
-  Licensed under the MIT License (MIT), see
-  http://jedwatson.github.io/classnames
-*/
-
-/*!
  * ApexCharts v3.25.0
  * (c) 2018-2021 Juned Chhipa
  * Released under the MIT License.
