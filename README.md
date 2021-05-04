@@ -11,4 +11,3 @@ This stock market inspired project allows users to search for any public stock, 
 
 ![screenshot of the app 2](https://res.cloudinary.com/ricky-ho/image/upload/c_scale,w_1080/v1620087223/msedge_4ZALh62gUz_b7z1zu.png)
 
-![screenshot of the app 3](https://res.cloudinary.com/ricky-ho/image/upload/c_scale,w_1080/v1620087208/msedge_Mt5r1vVDke_baiypt.png)
