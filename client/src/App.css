@@ -11,7 +11,7 @@
   --color-tertiary: #357fff;
   --color-bullish: #00873c;
   --color-bearish: #ff0000;
-  --color-tertiary-light: #bad7fd;
+  --color-secondary-light: rgb(190, 190, 190);
   --font-xs: 0.75rem;
   --font-s: 0.85rem;
   --font-m: 1.25rem;
@@ -22,15 +22,15 @@
   --screen-cutoff-size: 915px;
 }
 
-body {
-  min-width: var(--screen-cutoff-size);
-}
-
 #App {
   display: flex;
   flex-direction: column;
   align-items: center;
   background: linear-gradient(var(--color-tertiary) 10%, #fff 90%);
+}
+
+body {
+  min-width: var(--screen-cutoff-size);
 }
 
 main {

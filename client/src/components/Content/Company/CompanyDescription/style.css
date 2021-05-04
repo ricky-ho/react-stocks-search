@@ -38,9 +38,6 @@
 
 #expand-btn {
   cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   position: relative;
   width: 60px;
   bottom: -5px;
@@ -48,13 +45,19 @@
   margin-top: 5px;
   outline: none;
   border: 1px solid var(--color-tertiary);
-  font-size: var(--font-xs);
-  color: var(--color-tertiary);
   background: inherit;
   z-index: 1;
 }
 
-.toggle-icon {
+#expand-btn > span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--font-xs);
+  color: var(--color-tertiary);
+}
+
+.expand-btn--icon {
   width: 15px;
   padding-left: 5px;
 }

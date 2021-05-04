@@ -20,8 +20,10 @@
 }
 
 .newscard-img--wrapper {
-  width: 300px;
-  height: 130px;
+  display: block;
+  min-width: 175px;
+  width: 175px;
+  height: 115px;
 }
 
 .newscard-img {

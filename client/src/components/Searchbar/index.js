@@ -1,25 +1,25 @@
 import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
-import useWindowPosition from "../../utils/useWindowPosition";
+
+import useWindowPosition from "../../hooks/useWindowPosition";
 import "./style.css";
 
 const Searchbar = ({ searchSubmit }) => {
   const scrollPosition = useWindowPosition();
   const [searchTerm, setSearchTerm] = useState("");
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    searchSubmit(searchTerm);
+    setSearchTerm("");
+  };
+
   return (
     <header
       id="header"
       className={`${scrollPosition > 25 ? "header-sticky" : ""}`}
     >
-      <form
-        action=""
-        onSubmit={(e) => {
-          e.preventDefault();
-          searchSubmit(searchTerm);
-          setSearchTerm("");
-        }}
-      >
+      <form action="" onSubmit={(e) => handleSubmit(e)}>
         <input
           type="text"
           placeholder="Search by ticker symbol..."

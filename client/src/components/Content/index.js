@@ -1,38 +1,33 @@
 import Quote from "./Quote";
 import Stats from "./Stats";
 import DataChart from "./DataChart";
-import CompanyInfo from "./CompanyInfo";
+import Company from "./Company";
 import News from "./News";
 import Error from "./Error";
 import "./style.css";
 
 const Content = ({ data }) => {
-  if (data.error) {
-    return <Error data={data} />;
-  }
+  const { quote, company, news } = data;
+
+  if (data.error) return <Error data={data} />;
 
   return (
-    <main className="main-content">
-      <h1 className="main-title">
-        {`(${data.quote.symbol}) ${data.quote.companyName}`}
-      </h1>
+    <>
+      <h1 className="main-title">{`(${quote.symbol}) ${quote.companyName}`}</h1>
       <div className="main-item">
-        <Quote data={data.quote} />
-        <Stats data={data.quote} />
+        <Quote data={quote} />
+        <Stats data={quote} />
       </div>
       <div className="main-item">
-        <DataChart
-          data={data["intraday-prices"]}
-          priceChange={data.quote.change}
-        />
+        <DataChart data={data["intraday-prices"]} priceChange={quote.change} />
       </div>
       <div className="main-item">
-        <CompanyInfo data={data.company} symbol={data.quote.symbol} />
+        <Company data={company} symbol={quote.symbol} />
       </div>
       <div className="main-item last">
-        <News data={data.news} />
+        <News data={news} />
       </div>
-    </main>
+    </>
   );
 };
 

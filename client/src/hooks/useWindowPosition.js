@@ -9,7 +9,7 @@ const useWindowPosition = () => {
       setScrollPosition(position);
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 

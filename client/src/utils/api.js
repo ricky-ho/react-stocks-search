@@ -1,3 +1,5 @@
+import { formatTwoDecimalPlaces } from "./format";
+
 const fetchSymbolData = async (query) => {
   try {
     const response = await fetch(
@@ -27,6 +29,14 @@ const fetchSymbolData = async (query) => {
 export default fetchSymbolData;
 
 /************************************************************************/
+const handleAPIError = (response, query = "") => {
+  const errorMessage = setHTTPErrorMessage(response.status, query);
+  return {
+    error: true,
+    status: response.status,
+    message: response.statusText || errorMessage,
+  };
+};
 
 const extractQuoteData = (data) => {
   const filtered_quote = {
@@ -66,25 +76,14 @@ const extractCompanyData = (data) => {
   return filtered_company;
 };
 
-const handleAPIError = (response, query = "") => {
-  const errorMessage = setHTTPErrorMessage(response.status, query);
-  return {
-    error: true,
-    status: response.status,
-    message: response.statusText || errorMessage,
-  };
-};
-
 const setHTTPErrorMessage = (status, query) => {
   if (status === 400) return `Error: Bad request`;
   if (status === 401) return `Error: Forbidden`;
-  if (status === 402) return `Error: Free API credits limit has been exceeded`;
+  if (status === 402) return `Error: Free API credit limit has been exceeded`;
   if (status === 403) return `Error: The API token provided is no longer valid`;
   if (status === 404) return `No results found for "${query}"`;
+  if (status === 429) return `Error: Too many requests`;
+  if (status === 451)
+    return `Error: Requested data requires additional permission to access`;
   return `Internal server error`;
-};
-
-const formatTwoDecimalPlaces = (num) => {
-  if (num === null) return null;
-  return Number.parseFloat(num).toFixed(2);
 };

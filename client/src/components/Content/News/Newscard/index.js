@@ -1,5 +1,4 @@
 import { getRelativeTime } from "../../../../utils/date";
-import fallBackImage from "../../../../images/unavailable-image.jpg";
 import "./style.css";
 
 const Newscard = ({ article }) => {
@@ -17,7 +16,9 @@ const Newscard = ({ article }) => {
               src={article.image}
               alt={`${article.headline}`}
               className="newscard-img"
-              onError={(e) => (e.target.src = fallBackImage)}
+              onError={(e) =>
+                (e.target.src = `${process.env.PUBLIC_URL}/images/unavailable.jpg`)
+              }
             />
           </div>
 

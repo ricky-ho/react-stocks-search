@@ -1,14 +1,8 @@
 import { unixToLocaleDate } from "../../../utils/date";
+import { formatChangeString } from "../../../utils/format";
 import "./style.css";
 
 const Quote = ({ data }) => {
-  const formatChangeString = (change, percent) => {
-    if (change === null || percent === null) return null;
-
-    const op = Number(change) >= 0 ? `+` : "";
-    return `${op}${change} (${op}${percent}%)`;
-  };
-
   return (
     <section id="quote-section">
       <p className="quote-meta">
@@ -24,7 +18,7 @@ const Quote = ({ data }) => {
           }`}
         >
           {" "}
-          {formatChangeString(data.change, data.changePercent) || ""}
+          {formatChangeString(data.change, data.changePercent) || "-- (--)"}
         </span>
       </p>
 
