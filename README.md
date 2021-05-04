@@ -7,8 +7,8 @@ This stock market inspired project allows users to search for any public stock, 
 
 **NOTE**: Due to IEX free tier restrictions, historical price data is not included in the chart. The intraday price data may also be incomplete (e.g. missing market data for specific times throughout the day) which may cause breaks in the chart.
 
-![screenshot of the app 1](./client/src/images/ss-1.png)
+![screenshot of the app 1](https://res.cloudinary.com/ricky-ho/image/upload/c_scale,w_1080/v1620087207/msedge_zUlL7LmgsV_yf31vg.png)
 
-![screenshot of the app 2](./client/src/images/ss-2.png)
+![screenshot of the app 2](https://res.cloudinary.com/ricky-ho/image/upload/c_scale,w_1080/v1620087223/msedge_4ZALh62gUz_b7z1zu.png)
 
-![screenshot of the app 3](./client/src/images/ss-3.png)
+![screenshot of the app 3](https://res.cloudinary.com/ricky-ho/image/upload/c_scale,w_1080/v1620087208/msedge_Mt5r1vVDke_baiypt.png)
