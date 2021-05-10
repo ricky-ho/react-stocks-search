@@ -14,30 +14,31 @@
   --color-secondary-light: rgb(190, 190, 190);
   --font-xs: 0.75rem;
   --font-s: 0.85rem;
+  --font-S: 1rem;
   --font-m: 1.25rem;
   --font-M: 1.5rem;
   --font-l: 2rem;
   --font-xl: 2.5rem;
   --font-xxl: 3rem;
-  --screen-cutoff-size: 915px;
+  --breakpoint-1: 1024px;
+  --breakpoint-2: 800px;
+  --breakpoint-3: 450px;
 }
 
 #App {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
   background: linear-gradient(var(--color-tertiary) 10%, #fff 90%);
-}
-
-body {
-  min-width: var(--screen-cutoff-size);
 }
 
 main {
   display: flex;
   flex-direction: column;
-  width: var(--screen-cutoff-size);
+  width: var(--breakpoint-1);
   min-height: 94vh;
+  height: 100%;
   padding: 50px;
   background: #fff;
 }
@@ -51,4 +52,11 @@ main {
   display: flex;
   flex-direction: column;
   width: 100%;
+}
+
+@media screen and (max-width: 1024px) {
+  main {
+    width: 100%;
+    padding: 50px 25px;
+  }
 }

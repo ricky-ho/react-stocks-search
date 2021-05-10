@@ -35,3 +35,13 @@
 .color-bullish {
   color: #00873c;
 }
+
+@media screen and (max-width: 450px) {
+  .quote {
+    font-size: var(--font-xl);
+  }
+
+  .quote span {
+    font-size: var(--font-m);
+  }
+}

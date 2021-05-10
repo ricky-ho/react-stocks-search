@@ -14,7 +14,7 @@ const Content = ({ data }) => {
   return (
     <>
       <h1 className="main-title">{`(${quote.symbol}) ${quote.companyName}`}</h1>
-      <div className="main-item">
+      <div className="main-item first">
         <Quote data={quote} />
         <Stats data={quote} />
       </div>

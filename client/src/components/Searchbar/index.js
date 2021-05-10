@@ -20,17 +20,23 @@ const Searchbar = ({ searchSubmit }) => {
       className={`${scrollPosition > 25 ? "header-sticky" : ""}`}
     >
       <form action="" onSubmit={(e) => handleSubmit(e)}>
-        <input
-          type="text"
-          placeholder="Search by ticker symbol..."
-          title=""
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value.toUpperCase())}
-          required
-        />
-        <button type="submit" className="search-btn" aria-label="Submit search">
-          <FaSearch className="search-icon" />
-        </button>
+        <div>
+          <input
+            type="text"
+            placeholder="Search by ticker symbol..."
+            title=""
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value.toUpperCase())}
+            required
+          />
+          <button
+            type="submit"
+            className="search-btn"
+            aria-label="Submit search"
+          >
+            <FaSearch className="search-icon" />
+          </button>
+        </div>
       </form>
     </header>
   );

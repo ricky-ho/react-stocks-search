@@ -1,15 +1,9 @@
 import useAppState from "./hooks/useAppState";
-
 import Searchbar from "./components/Searchbar";
 import Content from "./components/Content";
 import Footer from "./components/Footer";
 import Spinner from "./components/Spinner";
 import "./App.css";
-
-/**
- NEED TO DO:
-  - Add screenshots of the app
-*/
 
 const App = () => {
   const { symbolData, isLoading, handleSearch } = useAppState();

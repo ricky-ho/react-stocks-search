@@ -5,7 +5,7 @@ const Stats = ({ data }) => {
   return (
     <section id="stats-section">
       <div className="stats-content">
-        <table>
+        <table className="table-1">
           <tbody>
             <tr>
               <th>Prev. Close</th>
@@ -30,7 +30,7 @@ const Stats = ({ data }) => {
           </tbody>
         </table>
 
-        <table>
+        <table className="table-2">
           <tbody>
             <tr>
               <th>Marketcap</th>

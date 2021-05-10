@@ -8,3 +8,9 @@
   font-size: var(--font-M);
   margin-bottom: 10px;
 }
+
+@media screen and (max-width: 800px) {
+  #company-section > div {
+    flex-direction: column;
+  }
+}

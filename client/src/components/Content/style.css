@@ -16,3 +16,15 @@
   margin-bottom: 0;
   border: none;
 }
+
+@media screen and (max-width: 800px) {
+  .first {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .main-title {
+    font-size: var(--font-M);
+  }
+}

@@ -21,13 +21,15 @@ const CompanyDescription = ({ description }) => {
 
   return (
     <div className="company-description--wrapper">
-      <div
-        ref={descriptionRef}
-        className={`company-description ${
-          contentOverflow && !showMore ? "fade-active" : ""
-        }`}
-      >
-        {description}
+      <div className="description--wrapper">
+        <p
+          ref={descriptionRef}
+          className={`description ${
+            contentOverflow && showMore ? "show-active" : ""
+          }`}
+        >
+          {description}
+        </p>
       </div>
 
       {contentOverflow && (

@@ -92,6 +92,9 @@ const setOptions = (priceChange) => {
           dashArray: 2,
         },
       },
+      tooltip: {
+        enabled: false,
+      },
     },
     yaxis: {
       decimalsInFloat: 2,

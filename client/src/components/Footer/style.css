@@ -12,7 +12,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  width: var(--screen-cutoff-size);
+  width: var(--breakpoint-1);
   height: 100%;
   padding: 50px;
 }
@@ -43,4 +43,23 @@
 .link p {
   padding: 8px;
   font-size: var(--font-xs);
+}
+
+@media screen and (max-width: 800px) {
+  .footer-content {
+    width: 100%;
+    justify-content: space-between;
+    padding: 50px 25px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  #attribution {
+    text-align: left;
+    margin-right: 2rem;
+  }
+
+  .link p {
+    text-align: center;
+  }
 }

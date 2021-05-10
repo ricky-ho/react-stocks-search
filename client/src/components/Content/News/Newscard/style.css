@@ -41,8 +41,12 @@
 }
 
 .newscard-content h3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
   font-size: var(--font-m);
-  padding-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .content-meta {
@@ -59,4 +63,26 @@
   color: var(--color-primary);
   font-size: var(--font-s);
   line-height: 1.2rem;
+}
+
+@media screen and (max-width: 800px) {
+  .newscard-img--wrapper {
+    min-width: 135px;
+    width: 135px;
+    height: 85px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .newscard-img--wrapper {
+    display: none;
+  }
+
+  .newscard-content {
+    margin-left: 0;
+  }
+
+  .newscard-content h3 {
+    font-size: var(--font-S);
+  }
 }

@@ -19,6 +19,7 @@ const Newscard = ({ article }) => {
               onError={(e) =>
                 (e.target.src = `${process.env.PUBLIC_URL}/images/unavailable.jpg`)
               }
+              loading="lazy"
             />
           </div>
 
