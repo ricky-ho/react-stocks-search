@@ -14,43 +14,28 @@
 }
 
 .description {
-  display: -webkit-box;
-  -webkit-line-clamp: 7;
-  -webkit-box-orient: vertical;
+  display: flex;
   font-size: var(--font-s);
   line-height: 1.35rem;
-  overflow: hidden;
+  max-height: 13.25rem;
+  overflow-y: auto;
+  padding-right: 10px;
 }
 
-.show-active {
-  -webkit-line-clamp: unset;
-  height: 100%;
+.description::-webkit-scrollbar {
+  width: 10px;
+}
+.description::-webkit-scrollbar-thumb {
+  border-radius: 15px;
+  background: var(--color-tertiary);
 }
 
-#expand-btn {
-  cursor: pointer;
-  position: relative;
-  width: 60px;
-  bottom: -5px;
-  padding: 3px 5px;
-  margin-top: 5px;
-  outline: none;
-  border: 1px solid var(--color-tertiary);
-  background: inherit;
-  z-index: 1;
+.bottom-shadow {
+  box-shadow: inset 0px -35px 50px -55px var(--color-secondary);
 }
 
-#expand-btn > span {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: var(--font-xs);
-  color: var(--color-tertiary);
-}
-
-.expand-btn--icon {
-  width: 15px;
-  padding-left: 5px;
+.top-shadow {
+  box-shadow: inset 0px 35px 50px -55px var(--color-secondary);
 }
 
 .no-description {

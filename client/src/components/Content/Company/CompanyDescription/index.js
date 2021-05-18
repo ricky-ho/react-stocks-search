@@ -1,58 +1,66 @@
-import { AiOutlineDown, AiOutlineUp } from "react-icons/ai";
-import useDescriptionOverflow from "../../../../hooks/useDescriptionOverflow";
-
+import { useState, useEffect, useRef } from "react";
 import "./style.css";
 
 const CompanyDescription = ({ description }) => {
-  const {
-    showMore,
-    setShowMore,
-    contentOverflow,
-    descriptionRef,
-  } = useDescriptionOverflow();
+  const descriptionRef = useRef();
+  const [overflow, setOverflow] = useState(false);
+  const [scrolledToBottom, setScrolledToBottom] = useState(false);
+  const [scrollHeight, setScrollHeight] = useState();
+
+  useEffect(() => {
+    const handleResize = () => {
+      setScrollHeight(descriptionRef.current.scrollHeight);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    const cHeight = descriptionRef.current.clientHeight;
+    const sHeight = descriptionRef.current.scrollHeight;
+
+    if (cHeight < sHeight) {
+      return setOverflow(true);
+    }
+    return setOverflow(false);
+  }, [scrollHeight]);
+
+  const handleScroll = (event) => {
+    const target = event.target;
+    if (target.scrollHeight - target.scrollTop === target.clientHeight) {
+      return setScrolledToBottom(true);
+    }
+    return setScrolledToBottom(false);
+  };
 
   if (!description || description === "") {
     return (
-      <div ref={descriptionRef} className="no-description">
-        <p>Company description not available.</p>
+      <div className="no-description">
+        <p ref={descriptionRef}>Company description not available.</p>
       </div>
     );
   }
 
   return (
     <div className="company-description--wrapper">
-      <div className="description--wrapper">
+      <div
+        className={`description--wrapper ${
+          overflow && !scrolledToBottom
+            ? "bottom-shadow"
+            : scrolledToBottom
+            ? "top-shadow"
+            : ""
+        }`}
+      >
         <p
           ref={descriptionRef}
-          className={`description ${
-            contentOverflow && showMore ? "show-active" : ""
-          }`}
+          className="description"
+          onScroll={(e) => handleScroll(e)}
         >
           {description}
         </p>
       </div>
-
-      {contentOverflow && (
-        <button
-          id="expand-btn"
-          type="text"
-          onClick={() => setShowMore(!showMore)}
-        >
-          <span>
-            {showMore ? (
-              <>
-                Fold
-                <AiOutlineUp className="expand-btn--icon" />
-              </>
-            ) : (
-              <>
-                More
-                <AiOutlineDown className="expand-btn--icon" />
-              </>
-            )}
-          </span>
-        </button>
-      )}
     </div>
   );
 };
