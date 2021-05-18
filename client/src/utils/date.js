@@ -1,18 +1,12 @@
 import moment from "moment";
+import "moment-timezone";
 
-export const unixToLocaleDate = (unix_datetime) => {
-  if (unix_datetime === null) return null;
+export const unixToDateString = (timestamp) => {
+  if (timestamp === null) return null;
 
-  const date = new Date(unix_datetime);
-  return date.toLocaleString([], {
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-    hour: "numeric",
-    minute: "2-digit",
-    timeZone: "America/New_York",
-    timeZoneName: "short",
-  });
+  const timezone = "America/Los_Angeles";
+  const date = moment(timestamp).tz(timezone).format("MMMM DD, YYYY, h:mm A z");
+  return date;
 };
 
 export const getRelativeTime = (timestamp) => {

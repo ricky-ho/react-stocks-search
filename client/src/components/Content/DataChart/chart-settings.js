@@ -1,4 +1,5 @@
-import { unixToLocaleDate } from "../../../utils/date";
+import { unixToDateString } from "../../../utils/date";
+import moment from "moment";
 
 const setSeries = (data) => {
   const series = [
@@ -9,7 +10,9 @@ const setSeries = (data) => {
         if (minutebar.close === null && index !== 0) {
           minutebar.close = data[index - 1].close;
         }
-        const datetime = Date.parse(`${minutebar.date} ${minutebar.minute}`);
+        const datetime =
+          Number(moment(`${minutebar.date} ${minutebar.minute}`).format("x")) -
+          3 * 60 * 60 * 1000; // Subtract 3 hours in milliseconds to get Pacific time from Eastern time
         return [datetime, minutebar.close];
       }),
     },
@@ -73,8 +76,8 @@ const setOptions = (priceChange) => {
       type: "datetime",
       labels: {
         datetimeFormatter: {
-          hour: "h:mm TT",
-          minute: "h:mm TT",
+          hour: "hh:mm TT",
+          minute: "hh:mm TT",
         },
         datetimeUTC: false,
       },
@@ -92,6 +95,7 @@ const setOptions = (priceChange) => {
           dashArray: 2,
         },
       },
+
       tooltip: {
         enabled: false,
       },
@@ -120,8 +124,7 @@ const setOptions = (priceChange) => {
       enabled: true,
       x: {
         formatter: (timestamp) => {
-          const HOUR_TO_MS = 60 * 60 * 1000;
-          return unixToLocaleDate(timestamp - 3 * HOUR_TO_MS);
+          return unixToDateString(timestamp);
         },
       },
       y: {

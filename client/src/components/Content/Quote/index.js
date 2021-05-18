@@ -1,4 +1,4 @@
-import { unixToLocaleDate } from "../../../utils/date";
+import { unixToDateString } from "../../../utils/date";
 import { formatChangeString } from "../../../utils/format";
 import "./style.css";
 
@@ -21,10 +21,9 @@ const Quote = ({ data }) => {
           {formatChangeString(data.change, data.changePercent) || "-- (--)"}
         </span>
       </p>
-
       <p className="quote-meta">
         {data.latestSource || "--"} |{" "}
-        {unixToLocaleDate(data.latestUpdate) || "--"} |{" "}
+        {unixToDateString(data.latestUpdate) || "--"} |{" "}
         <a href="https://iexcloud.io" rel="noopener noreferrer" target="_blank">
           IEX Cloud
         </a>
