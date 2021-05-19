@@ -7,10 +7,21 @@ const CompanyDescription = ({ description }) => {
   const [scrolledToBottom, setScrolledToBottom] = useState(false);
   const [scrollHeight, setScrollHeight] = useState();
 
+  const handleResize = () => {
+    setScrollHeight(descriptionRef.current.scrollHeight);
+  };
+
+  const handleScroll = (event) => {
+    const target = event.target;
+    if (target.scrollHeight - target.scrollTop === target.clientHeight) {
+      setScrolledToBottom(true);
+    } else {
+      setScrolledToBottom(false);
+    }
+  };
+
   useEffect(() => {
-    const handleResize = () => {
-      setScrollHeight(descriptionRef.current.scrollHeight);
-    };
+    setScrollHeight(descriptionRef.current.scrollHeight);
 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
@@ -18,21 +29,9 @@ const CompanyDescription = ({ description }) => {
 
   useEffect(() => {
     const cHeight = descriptionRef.current.clientHeight;
-    const sHeight = descriptionRef.current.scrollHeight;
-
-    if (cHeight < sHeight) {
-      return setOverflow(true);
-    }
-    return setOverflow(false);
+    if (cHeight < scrollHeight) setOverflow(true);
+    else setOverflow(false);
   }, [scrollHeight]);
-
-  const handleScroll = (event) => {
-    const target = event.target;
-    if (target.scrollHeight - target.scrollTop === target.clientHeight) {
-      return setScrolledToBottom(true);
-    }
-    return setScrolledToBottom(false);
-  };
 
   if (!description || description === "") {
     return (
