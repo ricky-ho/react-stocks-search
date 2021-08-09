@@ -1,11 +1,12 @@
 #stats-section {
+  display: flex;
+  justify-content: center;
   width: 100%;
 }
 
 .stats-content {
   display: flex;
   justify-content: space-evenly;
-  margin-top: 20px;
   width: 100%;
   height: 100%;
 }
@@ -25,10 +26,14 @@
 }
 
 @media screen and (max-width: 800px) {
+  #stats-section {
+    margin-top: 30px;
+  }
+
   .stats-content {
     justify-content: flex-start;
     margin-top: 0;
-    margin-bottom: 30px;
+    margin-bottom: 0;
   }
   .table-1 {
     margin-right: 75px;
@@ -39,8 +44,13 @@
 }
 
 @media screen and (max-width: 450px) {
+  #stats-section {
+    justify-content: flex-start;
+  }
+
   .stats-content {
     flex-direction: column;
+    width: auto;
   }
 
   .table-1 {

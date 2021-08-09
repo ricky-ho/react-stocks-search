@@ -1,6 +1,6 @@
 .newscard {
   width: 100%;
-  margin-bottom: 35px;
+  margin-bottom: 50px;
   overflow: hidden;
 }
 
@@ -9,7 +9,8 @@
   text-decoration: none;
 }
 
-.newscard a:hover {
+.newscard a:hover,
+.newscard a:focus {
   color: var(--color-tertiary);
 }
 
@@ -73,16 +74,12 @@
   }
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 500px) {
   .newscard-img--wrapper {
     display: none;
   }
 
   .newscard-content {
     margin-left: 0;
-  }
-
-  .newscard-content h3 {
-    font-size: var(--font-S);
   }
 }

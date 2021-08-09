@@ -1,9 +1,10 @@
 #quote-section {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: flex-start;
   width: 100%;
-  margin: 25px 0 35px 0;
+  height: 100%;
 }
 
 .quote-meta {
@@ -15,7 +16,7 @@
 .quote {
   display: block;
   font-size: var(--font-xxl);
-  margin: 5px 0;
+  margin: 10px 0;
 }
 
 .quote span {

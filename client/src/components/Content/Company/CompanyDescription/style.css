@@ -27,7 +27,7 @@
 }
 .description::-webkit-scrollbar-thumb {
   border-radius: 15px;
-  background: var(--color-tertiary);
+  background: var(--color-secondary-light);
 }
 
 .bottom-shadow {
@@ -54,6 +54,7 @@
 @media screen and (max-width: 800px) {
   .no-description {
     padding: 50px 0;
+    text-align: center;
   }
 
   .company-description--wrapper {
