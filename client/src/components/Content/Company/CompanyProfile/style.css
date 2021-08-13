@@ -1,34 +1,32 @@
 .company-profile {
+  flex: 1.5;
+  width: 100%;
+  margin-right: 75px;
+}
+
+.profile__inner {
   display: flex;
+  flex-direction: column;
   width: 100%;
-  margin-right: 50px;
 }
 
-.company-profile table {
-  flex: 1;
-  min-height: 150px;
+.industry {
+  width: 100%;
+  margin-bottom: 1rem;
 }
 
-.company-profile th {
-  font-size: var(--font-s);
-  font-weight: bold;
-  text-align: left;
-  border-bottom: 1px solid var(--color-secondary);
+.profile-item {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 3px;
 }
 
-.company-profile td {
+.profile-item > :first-child {
+  min-width: 150px;
   color: var(--color-secondary);
-  font-size: var(--font-s);
-  text-align: right;
-  width: 100%;
-  border-bottom: 1px solid var(--color-secondary);
 }
 
-@media screen and (max-width: 800px) {
-  .company-profile {
-    margin-bottom: 25px;
-  }
-  .company-profile td {
-    padding: 0.5rem 0;
-  }
+.profile-item > :nth-child(2) {
+  width: 100%;
 }

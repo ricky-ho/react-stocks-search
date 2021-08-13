@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  background-color: #fff;
+  background-color: inherit;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
@@ -11,7 +11,7 @@
 }
 
 .header__inner {
-  padding: 20px 0;
+  padding: 20px 50px;
   width: 100%;
   max-width: var(--breakpoint-1);
 }
@@ -22,7 +22,6 @@
 
 form {
   display: flex;
-  justify-content: center;
   align-items: center;
   width: 100%;
 }
@@ -38,7 +37,7 @@ form > div {
 input {
   position: relative;
   padding: 10px 20px;
-  width: 500px;
+  width: 350px;
   font-size: 0.9rem;
   color: var(--color-primary);
   outline: none;
@@ -48,7 +47,11 @@ input {
 }
 
 input:focus {
-  border: 1px solid var(--color-tertiary);
+  border: 1px solid var(--color-secondary);
+}
+
+input:focus ~ .search-btn .search-icon {
+  color: var(--color-secondary);
 }
 
 .search-btn {
@@ -68,15 +71,14 @@ input:focus {
 .search-icon {
   cursor: pointer;
   height: 100%;
-  color: var(--color-tertiary);
+  color: var(--color-secondary-light);
 }
 
-@media screen and (max-width: 800px) {
-  form > div {
-    width: 75%;
-  }
-
-  input {
+@media screen and (max-width: 1024px) {
+  .header__inner {
+    padding-left: 25px;
+    padding-right: 25px;
     width: 100%;
+    max-width: var(--breakpoint-1);
   }
 }

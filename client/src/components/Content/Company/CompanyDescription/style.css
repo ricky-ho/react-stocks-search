@@ -1,4 +1,5 @@
 .company-description--wrapper {
+  flex: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,14 +10,13 @@
   position: relative;
   width: 100%;
   color: var(--color-secondary);
-  padding-top: 3px;
   text-align: left;
 }
 
 .description {
   display: flex;
-  font-size: var(--font-s);
-  line-height: 1.35rem;
+  font-size: var(--font-S);
+  line-height: 150%;
   max-height: 13.25rem;
   overflow-y: auto;
   padding-right: 10px;
@@ -25,39 +25,25 @@
 .description::-webkit-scrollbar {
   width: 10px;
 }
+
+.description::-webkit-scrollbar-track {
+  background: hsl(0, 0%, 92%);
+}
+
 .description::-webkit-scrollbar-thumb {
   border-radius: 15px;
   background: var(--color-secondary-light);
 }
 
-.bottom-shadow {
-  box-shadow: inset 0px -35px 50px -55px var(--color-secondary);
-}
-
-.top-shadow {
-  box-shadow: inset 0px 35px 50px -55px var(--color-secondary);
-}
-
 .no-description {
+  flex: 2;
   display: flex;
   justify-content: center;
-  align-items: center;
   width: 100%;
-  padding-top: 5px;
 }
 
 .no-description p {
   color: var(--color-secondary);
-  font-size: var(--font-m);
-}
-
-@media screen and (max-width: 800px) {
-  .no-description {
-    padding: 50px 0;
-    text-align: center;
-  }
-
-  .company-description--wrapper {
-    padding: 25px 0;
-  }
+  font-size: var(--font-S);
+  text-align: center;
 }

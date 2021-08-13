@@ -17,12 +17,12 @@
   padding: 50px;
 }
 
-#attribution {
+.attribution {
   color: var(--color-primary);
-  font-size: calc(var(--font-s) - 0.1rem);
+  font-size: 12px;
 }
 
-#attribution a {
+.attribution a {
   color: var(--color-tertiary);
   font-size: inherit;
   text-decoration: none;
@@ -45,21 +45,8 @@
   font-size: var(--font-xs);
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1024px) {
   .footer-content {
-    width: 100%;
-    justify-content: space-between;
     padding: 50px 25px;
-  }
-}
-
-@media screen and (max-width: 450px) {
-  #attribution {
-    text-align: left;
-    margin-right: 2rem;
-  }
-
-  .link p {
-    text-align: center;
   }
 }

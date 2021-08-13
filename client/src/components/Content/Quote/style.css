@@ -7,20 +7,22 @@
   height: 100%;
 }
 
-.quote-meta {
-  display: block;
-  color: var(--color-secondary);
-  font-size: var(--font-xs);
-}
-
 .quote {
   display: block;
-  font-size: var(--font-xxl);
-  margin: 10px 0;
+  font-size: var(--font-xl);
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
 }
 
 .quote span {
-  font-size: var(--font-M);
+  font-size: var(--font-m);
+}
+
+.quote-meta {
+  font-size: var(--font-s);
+  color: var(--color-secondary);
+  text-transform: uppercase;
 }
 
 .quote-meta a {
@@ -35,14 +37,4 @@
 
 .color-bullish {
   color: #00873c;
-}
-
-@media screen and (max-width: 450px) {
-  .quote {
-    font-size: var(--font-xl);
-  }
-
-  .quote span {
-    font-size: var(--font-m);
-  }
 }

@@ -4,7 +4,7 @@ import "./style.css";
 const News = ({ data: news }) => {
   return (
     <section id="news" className="display-section">
-      <h2 className="">Recent News</h2>
+      <h3>Recent News</h3>
       {news.length > 0 ? (
         news.map((article, index) => <Newscard key={index} article={article} />)
       ) : (

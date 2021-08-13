@@ -51,7 +51,8 @@ const setOptions = (priceChange) => {
         lines: { show: true },
       },
       padding: {
-        top: 5,
+        top: 10,
+        right: 10,
       },
     },
     markers: {
@@ -101,6 +102,7 @@ const setOptions = (priceChange) => {
       },
     },
     yaxis: {
+      opposite: true,
       decimalsInFloat: 2,
       axisBorder: {
         show: false,

@@ -1,9 +1,39 @@
+.main-header {
+  display: flex;
+  margin-bottom: 25px;
+}
+
+.main-header > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-header > div p {
+  display: flex;
+  align-items: flex-end;
+  color: var(--color-secondary);
+}
+
 .main-title {
   width: 100%;
-  height: 100%;
-  font-size: var(--font-xl);
-  margin-bottom: 35px;
+  font-size: var(--font-l);
+  font-weight: 600;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   overflow-y: wrap;
+}
+
+.company-logo {
+  max-width: 75px;
+  min-width: 75px;
+  margin-right: 20px;
+  overflow: hidden;
+}
+
+.company-logo img {
+  width: 100%;
+  object-fit: contain;
 }
 
 .main-item {
@@ -22,11 +52,7 @@
   border: none;
 }
 
-@media screen and (max-width: 800px) {
-  .main-title {
-    font-size: var(--font-l);
-  }
-
+@media screen and (max-width: 1124px) {
   .first {
     flex-direction: column;
   }

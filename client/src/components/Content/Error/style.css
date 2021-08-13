@@ -16,13 +16,3 @@
   font-size: var(--font-xl);
   text-align: center;
 }
-
-@media screen and (max-width: 500px) {
-  .error img {
-    width: 100px;
-    height: 100px;
-  }
-  .error h1 {
-    font-size: var(--font-l);
-  }
-}

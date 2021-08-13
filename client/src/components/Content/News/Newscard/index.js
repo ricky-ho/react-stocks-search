@@ -24,7 +24,7 @@ const Newscard = ({ article }) => {
           </div>
 
           <div className="newscard-content">
-            <h3 key={article.url}>{article.headline || "--"}</h3>
+            <h4 key={article.url}>{article.headline || "--"}</h4>
             <p className="content-meta">
               {article.source || "--"} | {getRelativeTime(article.datetime)}
             </p>

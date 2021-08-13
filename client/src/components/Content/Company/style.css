@@ -1,15 +1,9 @@
 #company-section {
   width: 100%;
-  padding: 50px 0 100px 0;
+  padding: 50px 0;
 }
 
-#company-section h2 {
-  font-size: var(--font-l);
-  margin-bottom: 35px;
-}
-
-@media screen and (max-width: 800px) {
-  #company-section > div {
-    flex-direction: column;
-  }
+#company-section h3 {
+  font-size: var(--font-M);
+  margin-bottom: 2rem;
 }

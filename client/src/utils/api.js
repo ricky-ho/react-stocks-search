@@ -3,11 +3,13 @@ import { formatTwoDecimalPlaces } from "./format";
 const fetchSymbolData = async (query) => {
   try {
     const response = await fetch(
-      `https://cloud.iexapis.com/stable/stock/${query}/batch?types=quote,company,news,intraday-prices&last=3&token=${process.env.REACT_APP_IEX_API_PUBLIC_KEY}`
+      `https://cloud.iexapis.com/stable/stock/${query}/batch?types=quote,company,news,intraday-prices&last=1&token=${process.env.REACT_APP_IEX_API_PUBLIC_KEY}`
     );
+
     if (!response.ok) return handleAPIError(response, query);
 
     const data = await response.json();
+
     /* Edge case for IEX API in which the data is not in
      * the database, but the response returned ok
      */
@@ -15,6 +17,7 @@ const fetchSymbolData = async (query) => {
       const customError = { status: 404 };
       return handleAPIError(customError, query);
     }
+
     return {
       ...data,
       quote: extractQuoteData(data.quote),
@@ -28,7 +31,7 @@ const fetchSymbolData = async (query) => {
 
 export default fetchSymbolData;
 
-/************************************************************************/
+/* Helper Functions */
 const handleAPIError = (response, query = "") => {
   const errorMessage = setHTTPErrorMessage(response.status, query);
   return {
@@ -72,6 +75,8 @@ const extractCompanyData = (data) => {
     industry: data.industry,
     city: data.city,
     state: data.state,
+    address: data.address,
+    website: data.website,
   };
   return filtered_company;
 };

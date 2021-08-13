@@ -1,7 +1,8 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: arial;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
   box-sizing: border-box;
 }
 
@@ -20,7 +21,7 @@
   --font-l: 2rem;
   --font-xl: 2.5rem;
   --font-xxl: 3rem;
-  --breakpoint-1: 1024px;
+  --breakpoint-1: 1280px;
   --breakpoint-2: 800px;
   --breakpoint-3: 450px;
 }
@@ -30,17 +31,19 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  background: #5593ff;
+  min-width: var(--breakpoint-2);
+  background: #fff;
 }
 
 main {
   display: flex;
   flex-direction: column;
-  width: var(--breakpoint-1);
-  min-height: 94vh;
+  width: 100%;
+  max-width: var(--breakpoint-1);
+  min-height: 100vh;
   height: 100%;
   padding: 50px;
-  background: #fff;
+  background: inherit;
 }
 
 .flex {

@@ -5,12 +5,7 @@ import "./style.css";
 const Quote = ({ data }) => {
   return (
     <section id="quote-section">
-      <p className="quote-meta">
-        {data.primaryExchange ? `${data.primaryExchange} | ` : ""}
-        Currency in USD
-      </p>
-
-      <p className="quote">
+      <h2 className="quote">
         {data.latestPrice || "--"}
         <span
           className={`${
@@ -20,11 +15,16 @@ const Quote = ({ data }) => {
           {" "}
           {formatChangeString(data.change, data.changePercent) || "-- (--)"}
         </span>
-      </p>
+      </h2>
       <p className="quote-meta">
         {data.latestSource || "--"} |{" "}
         {unixToDateString(data.latestUpdate) || "--"} |{" "}
-        <a href="https://iexcloud.io" rel="noopener noreferrer" target="_blank">
+        <a
+          href="https://iexcloud.io"
+          rel="noopener noreferrer"
+          target="_blank"
+          title="Data provided by IEX Cloud"
+        >
           IEX Cloud
         </a>
       </p>

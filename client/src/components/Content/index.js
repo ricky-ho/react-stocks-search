@@ -13,7 +13,19 @@ const Content = ({ data }) => {
 
   return (
     <>
-      <h1 className="main-title">{`(${quote.symbol}) ${quote.companyName}`}</h1>
+      <div className="main-header">
+        <div className="company-logo">
+          <img
+            src={`https://logo.clearbit.com/${company.website}`}
+            alt={`${quote.companyName} logo`}
+          />
+        </div>
+        <div>
+          <h1 className="main-title">{quote.companyName}</h1>
+          <p>{`${quote.symbol} | ${quote.primaryExchange}`}</p>
+        </div>
+      </div>
+
       <div className="main-item first">
         <Quote data={quote} />
         <Stats data={quote} />
@@ -22,7 +34,7 @@ const Content = ({ data }) => {
         <DataChart data={data["intraday-prices"]} priceChange={quote.change} />
       </div>
       <div className="main-item">
-        <Company data={company} symbol={quote.symbol} />
+        <Company general={company} quote={quote} />
       </div>
       <div className="main-item last">
         <News data={news} />
