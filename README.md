@@ -7,7 +7,7 @@ This stock market inspired web application allows users to search for any public
 
 **NOTE**: Due to the IEXCloud API's free tier restrictions, historical price data is not included in the price movement chart. The intraday price data may also be incomplete (e.g. missing market data for short intervals of time throughout the day) which may cause breaks in the chart.
 
-## External Dependencies
+## Dependencies
 - [IEXCloud API](https://iexcloud.io)
 - [Apexcharts](https://apexcharts.com/)
   - [react-apexcharts](https://www.npmjs.com/package/react-apexcharts)
