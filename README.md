@@ -14,7 +14,7 @@ This stock market inspired web application allows users to search for any public
 - [moment.js](https://momentjs.com/)
 - [react-icons](https://react-icons.github.io/react-icons)
 
-## Demo
+## Screenshots
 ![screenshot of the app 1](https://res.cloudinary.com/ricky-ho/image/upload/v1628835882/Stocks%20Search/stocksearch_1280.png)
 
 ![screenshot of the app 2](https://res.cloudinary.com/ricky-ho/image/upload/v1628837122/Stocks%20Search/stocksearch_2_ovgmwf.png)
