@@ -11,7 +11,8 @@ const DataChart = ({ data, priceChange }) => {
     <section id="chart-section">
       <p className="chart-disclaimer">
         <span>DISCLAIMER:</span> Due to IEX Cloud's free tier restrictions, only
-        the intraday prices will be displayed.
+        the IEX intraday prices will be displayed. Occasionally, the dataset may
+        also be empty, but should resolve within the day.
       </p>
       <Chart
         options={options}
