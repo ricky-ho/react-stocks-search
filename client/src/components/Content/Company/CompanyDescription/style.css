@@ -1,5 +1,4 @@
 .company-description--wrapper {
-  flex: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -36,7 +35,6 @@
 }
 
 .no-description {
-  flex: 2;
   display: flex;
   justify-content: center;
   width: 100%;

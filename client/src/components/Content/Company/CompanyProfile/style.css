@@ -1,7 +1,6 @@
 .company-profile {
-  flex: 1.5;
   width: 100%;
-  margin-right: 75px;
+  max-width: 375px;
 }
 
 .profile__inner {
@@ -19,7 +18,7 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  margin-bottom: 3px;
+  margin-bottom: 5px;
 }
 
 .profile-item > :first-child {

@@ -9,6 +9,11 @@ import "./style.css";
 const Content = ({ data }) => {
   const { quote, company, news } = data;
 
+  const hideMissingLogo = () => {
+    const logo = document.querySelector(".company-logo");
+    logo.style.display = "none";
+  };
+
   if (data.error) return <Error data={data} />;
 
   return (
@@ -18,6 +23,7 @@ const Content = ({ data }) => {
           <img
             src={`https://logo.clearbit.com/${company.website}`}
             alt={`${quote.companyName} logo`}
+            onError={() => hideMissingLogo()}
           />
         </div>
         <div>
