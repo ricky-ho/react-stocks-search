@@ -7,6 +7,11 @@ This stock market inspired web application allows users to search for any public
 
 **NOTE**: Due to the IEXCloud API's free tier restrictions, historical price data is not included in the price movement chart. The intraday price data may also be incomplete (e.g. missing market data for short intervals of time throughout the day) which may cause breaks in the chart.
 
+## Future Improvements
+- Implement search history functionality that will display as a dropdown when the searchbar is in focus
+- Find a free third-party API that provides historical market data to include historical prices in the chart
+- Add click events on chart to determine starting and ending data point to calculate statistics (i.e. price change, percent change, etc)
+
 ## Dependencies
 - [IEXCloud API](https://iexcloud.io)
 - [Apexcharts](https://apexcharts.com/)
